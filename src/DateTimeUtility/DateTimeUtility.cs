@@ -12,8 +12,8 @@ namespace Rosered11.Aspnet.Utilities
                 // UTC+07.00
                 timezoneId = "SE Asia Standard Time";
             }
-            TimeSpan timeSpan = TimeZoneInfo.FindSystemTimeZoneById(timezoneId).GetUtcOffset(original);
-            return new DateTimeOffset(original, timeSpan);
+            TimeZoneInfo specificTimeZone = TimeZoneInfo.FindSystemTimeZoneById(timezoneId);//.GetUtcOffset(original);
+            return TimeZoneInfo.ConvertTime(original, specificTimeZone);
         }
     }
 }
